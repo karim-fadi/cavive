@@ -249,13 +249,14 @@ body {
 .has-scrollbar::-webkit-scrollbar-track,
 .has-scrollbar::-webkit-scrollbar-thumb { background-color: transparent; }
 
-.has-scrollbar:is(:hover, :focus-within)::-webkit-scrollbar-track {
+.has-scrollbar::-webkit-scrollbar-track {
   background-color: hsl(0, 0%, 98%);
 }
 
-.has-scrollbar:is(:hover, :focus-within)::-webkit-scrollbar-thumb {
+.has-scrollbar::-webkit-scrollbar-thumb {
   background-color: hsl(0, 0%, 70%);
 }
+
 
 .has-before,
 .has-after {
@@ -387,7 +388,7 @@ body {
 
 
 .header .input-wrapper,
-.header-action-btn:not(:first-child),
+
 .navbar { display: none; }
 
 .header {
