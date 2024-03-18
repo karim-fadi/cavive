@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayCartItems() {
       // Get the cart container
       const cartItemsContainer = document.querySelector('.cart-items');
+      var checkoutSection = document.querySelector('.checkout-section');
   
       // Clear previous items
       cartItemsContainer.innerHTML = '';
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
       // Check if there are stored cart items
       if (storedCartItems.length > 0) {
+        checkoutSection.style.display = 'block';
         // Iterate through each cart item
         storedCartItems.forEach(function(item, index) {
           // Create cart item element
@@ -70,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       } else {
         // If no items in cart, display a message
+        checkoutSection.style.display = 'none';
         const emptyCartMessage = document.createElement('div');
         emptyCartMessage.textContent = 'Your cart is empty.';
         cartItemsContainer.appendChild(emptyCartMessage);
@@ -113,4 +116,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call the function to display cart items when the page loads
     displayCartItems();
   });
+
+
+// Function to check if all form fields are filled
+function checkForm() {
+  var form = document.getElementById('checkout-form');
+  var inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+  var allFilled = true;
+
+  inputs.forEach(function(input) {
+      if (input.value === '') {
+          allFilled = false;
+      }
+  });
+
+  var submitButton = form.querySelector('input[type="submit"]');
+  submitButton.disabled = !allFilled;
+}
+
+// Call the checkForm function whenever there's a change in the form fields
+document.getElementById('checkout-form').addEventListener('input', checkForm);
+
+// Initially check form to disable the submit button if necessary
+checkForm();
   

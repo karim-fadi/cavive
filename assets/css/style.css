@@ -1294,6 +1294,81 @@ footer {
 }
 
 
+/*-----------------------------------*\
+  # Checkout
+\*-----------------------------------*/
+
+/* Style for the form container */
+.checkout-section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.checkout-text {
+  color: #000000;
+}
+
+.checkout-warning {
+  color: #ff4d4d;
+}
+
+/* Style for the form labels */
+.checkout-section label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+/* Style for the form inputs */
+.checkout-section input[type="email"],
+.checkout-section input[type="text"],
+.checkout-section input[type="tel"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the submit button */
+.checkout-section input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for the submit button when disabled */
+.checkout-section input[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Style for the submit button on hover when enabled */
+.checkout-section input[type="submit"]:not(:disabled):hover {
+  background-color: #45a049;
+}
+
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .checkout-section input[type="text"],
+  .checkout-section input[type="tel"],
+  .checkout-section input[type="email"] {
+      width: 100%;
+  }
+}
+
+
+
 
 /*-----------------------------------*\
   #MEDIA QUERIES
