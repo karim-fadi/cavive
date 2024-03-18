@@ -195,7 +195,15 @@ const addToCart = function() {
   const selectedSize = document.querySelector('.size-box.selected').getAttribute('data-size');
   const selectedName = productNameElem.textContent;
 
-  cartItems = JSON.parse(localStorage.getItem('cartItems'));
+  if (JSON.parse(localStorage.getItem('cartItems')) === null)
+  {
+    cartItems = [];
+  }
+
+  else 
+  {
+    cartItems = JSON.parse(localStorage.getItem('cartItems'));
+  }
 
   // Create a new cart item object
   const newItem = {
