@@ -92,12 +92,11 @@ function sliderEnd() {
 
 sliderEnd();
 
-
-
 /**
  * product quantity functionality
  */
 
+const productNameElem = document.querySelector("[data-product-name]");
 const totalPriceElem = document.querySelector("[data-total-price]");
 const totalPriceElem2 = document.querySelector("[data-total-price2]");
 const qtyElem = document.querySelector("[data-qty]");
@@ -108,13 +107,37 @@ const qtyPlusBtn = document.querySelector("[data-qty-plus]");
 let qty = 1;
 
 // set the product default price
-let productPrice = 450;
+let productPrice = 480;
+let totalPrice = 480;
 
 let productPriceUndiscounted = 600;
 let totalPriceUndiscounted = 600;
 
-// set the initial total price
-let totalPrice = 450;
+
+
+if (productNameElem) {
+  const productName = productNameElem.textContent;
+
+  if (productName === "Reppin' Out Of Mind Hoodie") {
+    productPrice = 480;
+    totalPrice = 480;
+    productPriceUndiscounted = 600;
+    totalPriceUndiscounted = 600;
+
+  } else if (productName === "Lost In Thoughts Hoodie") {
+    productPrice = 600;
+    totalPrice = 600;
+    productPriceUndiscounted = 600;
+    totalPriceUndiscounted = 600;
+
+  } else if (productName === "We Don't Look Back Hoodie") {
+    productPrice = 600;
+    totalPrice = 600;
+    productPriceUndiscounted = 600;
+    totalPriceUndiscounted = 600;
+  }
+
+}
 
 const increaseProductQty = function () {
   qty++;
@@ -139,3 +162,55 @@ const decreaseProductQty = function () {
 }
 
 addEventOnElem(qtyMinusBtn, "click", decreaseProductQty);
+
+document.addEventListener("DOMContentLoaded", function() {
+  const sizeBoxes = document.querySelectorAll('.size-box');
+
+  sizeBoxes.forEach(box => {
+    box.addEventListener('click', function() {
+      // Remove 'selected' class from all size boxes
+      sizeBoxes.forEach(box => {
+        box.classList.remove('selected');
+      });
+
+      // Add 'selected' class to the clicked size box
+      this.classList.add('selected');
+
+      // Get the selected size
+      const selectedSize = this.getAttribute('data-size');
+      console.log('Selected size:', selectedSize);
+    });
+  });
+});
+
+
+// Cart System
+
+// Array to store items in the cart
+let cartItems = [];
+
+// Function to add item to the cart
+const addToCart = function() {
+  // Get the selected size
+  const selectedSize = document.querySelector('.size-box.selected').getAttribute('data-size');
+  const selectedName = productNameElem.textContent;
+
+  // Create a new cart item object
+  const newItem = {
+    name: selectedName,
+    size: selectedSize,
+    quantity: qty,
+    price: totalPrice
+  };
+
+  // Add the item to the cart
+  cartItems.push(newItem);
+
+  // Log the cart items
+  console.log('Item added to cart:', newItem);
+  console.log(cartItems);
+}
+
+// Add event listener to the add to cart button
+const addToCartBtn = document.querySelector("[data-add-to-cart]");
+addToCartBtn.addEventListener('click', addToCart);
