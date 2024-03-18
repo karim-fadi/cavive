@@ -10,12 +10,12 @@
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="../assets/images/logo.jpg">
+  <link rel="shortcut icon" href="./assets/images/logo.jpg">
 
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 
   <!-- 
     - google font link
@@ -27,7 +27,7 @@
   <!-- 
     - preload images
   -->
-  <link rel="preload" as="image" href="../assets/images/logo2.jpg">
+  <link rel="preload" as="image" href="./assets/images/logo2.jpg">
 
 </head>
 
@@ -58,7 +58,7 @@
 
         <a href="#" class="logo">
           <div class="top-logo">
-          <img src="../assets/images/logo2.jpg" width="130" height="26" alt="cavive">
+          <img src="./assets/images/logo2.jpg" width="130" height="26" alt="cavive">
         </div>
         </a>
 
@@ -70,12 +70,10 @@
 
           <button class="header-action-btn" aria-label="user"></button>
 
-          <a href="../cart.html">
           <button class="header-action-btn" aria-label="cart item">
 
             <ion-icon name="bag-handle-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
           </button>
-        </a>
 
         </div>
 
@@ -83,19 +81,19 @@
           <ul class="navbar-list">
 
             <li>
-              <a href="../index.html" class="navbar-link has-after">Home</a>
+              <a href="./index.html" class="navbar-link has-after">Home</a>
             </li>
 
             <li>
-              <a href="../index.html#shop" class="navbar-link has-after">Shop</a>
+              <a href="./index.html#shop" class="navbar-link has-after">Shop</a>
             </li>
 
             <li>
-              <a href="../index.html#collection" class="navbar-link has-after">Collection</a>
+              <a href="./index.html#collection" class="navbar-link has-after">Collection</a>
             </li>
 
             <li>
-              <a href="../index.html#offer" class="navbar-link has-after">Offer</a>
+              <a href="./index.html#offer" class="navbar-link has-after">Offer</a>
             </li>
 
           </ul>
@@ -115,7 +113,7 @@
 
       <div class="wrapper">
         <a href="#" class="logo">
-          <img src="../assets/images/logo2.jpg" width="120" height="26" alt="Glowing">
+          <img src="./assets/images/logo2.jpg" width="120" height="26" alt="Glowing">
         </a>
 
         <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
@@ -126,19 +124,19 @@
       <ul class="navbar-list">
 
         <li>
-          <a href="../index.html" class="navbar-link" data-nav-link>Home</a>
+          <a href="./index.html" class="navbar-link" data-nav-link>Home</a>
         </li>
 
         <li>
-          <a href="../index.html#shop" class="navbar-link" data-nav-link>Shop</a>
+          <a href="./index.html#shop" class="navbar-link" data-nav-link>Shop</a>
         </li>
 
         <li>
-          <a href="../index.html#collection" class="navbar-link" data-nav-link>Collection</a>
+          <a href="./index.html#collection" class="navbar-link" data-nav-link>Collection</a>
         </li>
 
         <li>
-          <a href="../index.html#offer" class="navbar-link" data-nav-link>Offer</a>
+          <a href="./index.html#offer" class="navbar-link" data-nav-link>Offer</a>
         </li>
 
       </ul>
@@ -155,95 +153,16 @@
   <main>
     <article>
 
-      <section class="section product" aria-label="product">
-        <div class="container">
-
-          <div class="product-slides">
-
-            <div class="slider-banner" data-slider>
-              <figure class="product-banner">
-                <img src="../assets/images/hoodie-1-face.jpg" width="600" height="600" loading="lazy" alt="Nike Sneaker"
-                  class="img-cover">
-              </figure>
-
-              <figure class="product-banner">
-                <img src="../assets/images/hoodie-1-back.jpg" width="600" height="600" loading="lazy" alt="Nike Sneaker"
-                  class="img-cover">
-              </figure>
-
-              <figure class="product-banner">
-                <img src="../assets/images/hoodie-1-side.jpg" width="600" height="600" loading="lazy" alt="Nike Sneaker"
-                  class="img-cover">
-              </figure>
+        <div class="cart-container">
+            <h1 class="shopping-cart-title">Shopping Cart</h1>
+            <div class="cart-items">
+              <!-- Cart items will be dynamically added here -->
             </div>
-
-            <button class="slide-btn prev" aria-label="Previous image" data-prev>
-              <ion-icon name="chevron-back" aria-hidden="true"></ion-icon>
-            </button>
-
-            <button class="slide-btn next" aria-label="Next image" data-next>
-              <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
-            </button>
-
+            <hr>
+            <div class="total-price">
+              <span>Total Price: </span><span id="total-price-value">$0.00</span>
+            </div>
           </div>
-
-          <div class="product-content">
-
-            <h1 class="h1 product-title" data-product-name>Reppin' Out Of Mind Hoodie</h1>
-
-            <br>
-
-            <p class="size-text">Size</p>
-
-            <br>
-
-            <div class="size-container">
-              <div class="size-box small selected" data-size="Small">S</div>
-              <div class="size-box medium unavailable" data-size="Medium">M</div>
-              <div class="size-box large" data-size="Large">L</div>
-              <div class="size-box xlarge" data-size="XLarge">XL</div>
-            </div>
-
-            <div class="wrapper">
-
-              
-
-              <span class="price" data-total-price>EGP 480.00</span>
-
-              <span class="badge">20%</span>
-
-              <del class="del" data-total-price2>EGP 600.00</del>
-
-            </div>
-
-            <div class="btn-group">
-
-              <div class="counter-wrapper">
-
-                <button class="counter-btn" data-qty-minus>
-                  <ion-icon name="remove-outline"></ion-icon>
-                </button>
-
-                <span class="span" data-qty>1</span>
-
-                <button class="counter-btn" data-qty-plus>
-                  <ion-icon name="add-outline"></ion-icon>
-                </button>
-
-              </div>
-
-              <button data-add-to-cart class="cart-btn">
-                <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-
-                <span class="span">Add to cart</span>
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
 
     </article>
   </main>
@@ -278,7 +197,7 @@
         </div>
         <div class="middle">
           <div class="bottom-logo">
-            <img src="../assets/images/logo2.jpg" width="100" height="26" alt="Company Logo">
+            <img src="./assets/images/logo2.jpg" width="100" height="26" alt="Company Logo">
           </div>
         </div>
         <div class="right">
@@ -299,7 +218,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="../assets/js/product.js" defer></script>
+  <script src="./assets/js/cart.js" defer></script>
 
   <!-- 
     - ionicon link

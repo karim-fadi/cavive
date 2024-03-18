@@ -189,11 +189,13 @@ document.addEventListener("DOMContentLoaded", function() {
 // Array to store items in the cart
 let cartItems = [];
 
-// Function to add item to the cart
+// Function to add item to the cart and save it to local storage
 const addToCart = function() {
   // Get the selected size
   const selectedSize = document.querySelector('.size-box.selected').getAttribute('data-size');
   const selectedName = productNameElem.textContent;
+
+  cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
   // Create a new cart item object
   const newItem = {
@@ -206,10 +208,14 @@ const addToCart = function() {
   // Add the item to the cart
   cartItems.push(newItem);
 
+  // Save the updated cart items to local storage
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
   // Log the cart items
   console.log('Item added to cart:', newItem);
   console.log(cartItems);
 }
+
 
 // Add event listener to the add to cart button
 const addToCartBtn = document.querySelector("[data-add-to-cart]");
