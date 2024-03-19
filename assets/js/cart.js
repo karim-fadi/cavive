@@ -118,20 +118,41 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-// Function to check if all form fields are filled
-function checkForm() {
-  var form = document.getElementById('checkout-form');
-  var inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
-  var allFilled = true;
+  function checkForm() {
+    var form = document.getElementById('checkout-form');
+    var inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+    var allValid = true;
 
-  inputs.forEach(function(input) {
-      if (input.value === '') {
-          allFilled = false;
-      }
-  });
+    inputs.forEach(function(input) {
+        // Validate email
+        if (input.type === 'email') {
+            if (!isValidEmail(input.value)) {
+                allValid = false;
+                input.nextElementSibling.textContent = 'Please enter a valid email address.';
+            } else {
+                input.nextElementSibling.textContent = '';
+            }
+        }
+        // Validate phone number
+        else if (input.type === 'tel') {
+            if (!isValidPhoneNumber(input.value)) {
+                allValid = false;
+                input.nextElementSibling.textContent = 'Please enter a valid phone number.';
+            } else {
+                input.nextElementSibling.textContent = '';
+            }
+        }
+        // Check if input is empty
+        else if (input.value === '') {
+            allValid = false;
+            input.nextElementSibling.textContent = 'This field is required.';
+        } else {
+            input.nextElementSibling.textContent = '';
+        }
+    });
 
-  var submitButton = form.querySelector('input[type="submit"]');
-  submitButton.disabled = !allFilled;
+    var submitButton = form.querySelector('input[type="submit"]');
+    submitButton.disabled = !allValid;
 }
 
 // Call the checkForm function whenever there's a change in the form fields
@@ -139,4 +160,3 @@ document.getElementById('checkout-form').addEventListener('input', checkForm);
 
 // Initially check form to disable the submit button if necessary
 checkForm();
-  

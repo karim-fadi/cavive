@@ -169,29 +169,69 @@
             <p class="checkout-warning">Please review the cart carefully before checking out.</p>
             <br>
             <form id="checkout-form">
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email"><br>
-                
-                <label for="fname">First Name:</label><br>
-                <input type="text" id="fname" name="fname"><br>
-                
-                <label for="lname">Last Name:</label><br>
-                <input type="text" id="lname" name="lname"><br>
-                
-                <label for="address">Address:</label><br>
-                <input type="text" id="address" name="address"><br>
-                
-                <label for="city">City:</label><br>
-                <input type="text" id="city" name="city"><br>
-                
-                <label for="postal">Postal Code:</label><br>
-                <input type="text" id="postal" name="postal"><br>
-                
-                <label for="phone">Phone:</label><br>
-                <input type="tel" id="phone" name="phone"><br>
-                
-                <input type="submit" value="Check Out">
-            </form>
+              <label for="email">Email:</label><br>
+              <input type="email" id="email" name="email">
+              <span id="email-error" class="error"></span><br>
+              
+              <label for="fname">First Name:</label><br>
+              <input type="text" id="fname" name="fname"><br>
+              
+              <label for="lname">Last Name:</label><br>
+              <input type="text" id="lname" name="lname"><br>
+              
+              <label for="address">Address:</label><br>
+              <input type="text" id="address" name="address"><br>
+              
+              <label for="city">City:</label><br>
+              <input type="text" id="city" name="city"><br>
+              
+              <label for="postal">Postal Code:</label><br>
+              <input type="text" id="postal" name="postal"><br>
+              
+              <label for="phone">Phone:</label><br>
+              <input type="tel" id="phone" name="phone">
+              <span id="phone-error" class="error"></span><br>
+              
+              <input type="submit" value="Check Out" disabled>
+          </form>
+      
+          <script>
+              var emailInput = document.getElementById('email');
+              var emailError = document.getElementById('email-error');
+      
+              var phoneInput = document.getElementById('phone');
+              var phoneError = document.getElementById('phone-error');
+      
+              var submitButton = document.querySelector('input[type="submit"]');
+              submitButton.disabled = true;
+      
+              // Function to check if all fields are valid
+              function checkFormValidity() {
+                  var emailIsValid = isValidEmail(emailInput.value);
+                  var phoneIsValid = isValidPhoneNumber(phoneInput.value);
+      
+                  emailError.textContent = emailIsValid ? '' : 'Please enter a valid email address.';
+                  phoneError.textContent = phoneIsValid ? '' : 'Please enter a valid phone number.';
+      
+                  submitButton.disabled = !(emailIsValid && phoneIsValid);
+              }
+      
+              // Event listeners for input fields
+              emailInput.addEventListener('input', checkFormValidity);
+              phoneInput.addEventListener('input', checkFormValidity);
+      
+              // Function to validate email
+              function isValidEmail(email) {
+                  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                  return emailRegex.test(email);
+              }
+      
+              // Function to validate phone number
+              function isValidPhoneNumber(phone) {
+                  var phoneRegex = /^\d{10}$/;
+                  return phoneRegex.test(phone);
+              }
+          </script>
         </div>
 
     </article>

@@ -1357,6 +1357,10 @@ footer {
   background-color: #45a049;
 }
 
+.error {
+  color: #ff4d4d;
+}
+
 
 /* Responsive styling */
 @media (max-width: 600px) {
