@@ -1810,7 +1810,7 @@ footer {
     width: 100%;
     background-color: var(--white);
     padding-block: 18px;
-    z-index: 4;
+    z-index: 0;
   }
 
   .navbar .navbar-list {
