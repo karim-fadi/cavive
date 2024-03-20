@@ -228,3 +228,31 @@ const addToCart = function() {
 // Add event listener to the add to cart button
 const addToCartBtn = document.querySelector("[data-add-to-cart]");
 addToCartBtn.addEventListener('click', addToCart);
+
+// Get the modal element
+var modal = document.getElementById("termsModal");
+
+// Get the link element
+var link = document.querySelector(".terms");
+
+// When the user clicks on the link, open the modal with a fade-in animation
+link.addEventListener("click", function(event) {
+  event.preventDefault();
+  modal.classList.add("fade-in");
+  modal.style.display = "block";
+});
+
+// When the user clicks on the close button, close the modal
+var closeBtn = document.querySelector(".close");
+closeBtn.addEventListener("click", function() {
+  modal.style.display = "none";
+  modal.classList.remove("fade-in");
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    modal.classList.remove("fade-in");
+  }
+});

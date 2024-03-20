@@ -160,3 +160,32 @@ document.getElementById('checkout-form').addEventListener('input', checkForm);
 
 // Initially check form to disable the submit button if necessary
 checkForm();
+
+
+// Get the modal element
+var modal = document.getElementById("termsModal");
+
+// Get the link element
+var link = document.querySelector(".terms");
+
+// When the user clicks on the link, open the modal with a fade-in animation
+link.addEventListener("click", function(event) {
+  event.preventDefault();
+  modal.classList.add("fade-in");
+  modal.style.display = "block";
+});
+
+// When the user clicks on the close button, close the modal
+var closeBtn = document.querySelector(".close");
+closeBtn.addEventListener("click", function() {
+  modal.style.display = "none";
+  modal.classList.remove("fade-in");
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    modal.classList.remove("fade-in");
+  }
+});

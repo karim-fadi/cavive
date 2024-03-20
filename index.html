@@ -453,19 +453,31 @@
             </p>
 
             <div class="countdown">
-              <span id="days" class="time" aria-label="days">15</span>
-              <span id="hours" class="time" aria-label="hours">21</span>
-              <span id="minutes" class="time" aria-label="minutes">46</span>
-              <span id="seconds" class="time" aria-label="seconds">08</span>
+              <span id="days" class="time" aria-label="days">0</span>
+              <span id="hours" class="time" aria-label="hours">0</span>
+              <span id="minutes" class="time" aria-label="minutes">0</span>
+              <span id="seconds" class="time" aria-label="seconds">0</span>
           </div>
 
           <script>
-            var x = setInterval(function() {
-                var countdownDate = new Date("March 20, 2024 12:00:00").getTime();
+            function updateCountdown() {
+                var countdownDate = new Date("March 26, 2024 12:00:00").getTime();
         
                 var now = new Date().getTime();
         
                 var distance = countdownDate - now;
+        
+                // Check if distance is less than or equal to zero
+                if (distance <= 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "EXPIRED";
+                    // Set countdown values to zeros
+                    document.getElementById("days").innerHTML = "0";
+                    document.getElementById("hours").innerHTML = "0";
+                    document.getElementById("minutes").innerHTML = "0";
+                    document.getElementById("seconds").innerHTML = "0";
+                    return; // Stop further execution
+                }
         
                 var days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -476,13 +488,15 @@
                 document.getElementById("hours").innerHTML = hours;
                 document.getElementById("minutes").innerHTML = minutes;
                 document.getElementById("seconds").innerHTML = seconds;
+            }
         
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("countdown").innerHTML = "EXPIRED";
-                }
-            }, 1000);
+            // Call updateCountdown immediately to ensure the correct countdown is displayed on page load
+            updateCountdown();
+        
+            // Set interval to update countdown every second
+            var x = setInterval(updateCountdown, 1000);
         </script>
+        
 
             <a href="./products/product-1.html" class="btn btn-primary">Get Only EGP 480.00</a>
 
@@ -529,6 +543,12 @@
         </div>
         <div class="right">
             <a href="#" target="_blank" class="terms">Terms & Conditions</a>
+            <div id="termsModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <img src="./assets/images/policy.jpg" alt="Terms & Conditions">
+              </div>
+            </div>
         </div>
     </div>
 </footer>
