@@ -240,6 +240,9 @@ link.addEventListener("click", function(event) {
   event.preventDefault();
   modal.classList.add("fade-in");
   modal.style.display = "block";
+
+  var headerTop = document.querySelector('.header-top');
+  headerTop.style.zIndex = '0';
 });
 
 // When the user clicks on the close button, close the modal
@@ -247,6 +250,8 @@ var closeBtn = document.querySelector(".close");
 closeBtn.addEventListener("click", function() {
   modal.style.display = "none";
   modal.classList.remove("fade-in");
+  var headerTop = document.querySelector('.header-top');
+  headerTop.style.zIndex = '4';
 });
 
 // When the user clicks anywhere outside of the modal, close it
@@ -254,5 +259,7 @@ window.addEventListener("click", function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
     modal.classList.remove("fade-in");
+    var headerTop = document.querySelector('.header-top');
+    headerTop.style.zIndex = '4';
   }
 });
